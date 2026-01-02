@@ -1,7 +1,7 @@
-// LC: 0000 placeholder-slug
-// Title: Placeholder Title
-// Difficulty:
-// Date:
+// LC: 186A New Year String
+// Title: New Year String
+// Difficulty: Easy
+// Date: 01 Jan 2026
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -133,13 +133,28 @@ void print_vec(const vector<T> &v, char sep = ' ')
 // ---------- solve ----------
 void solve()
 {
-    // Example skeleton:
-    // int n; cin >> n;
-    // vector<int> a(n); read_vec(a);
-    // cout << ... << "\n";
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    bool five = false, six = false;
+    for (int i = 0; i <= n - 3; i++)
+    {
+        if (s[i] == '2' && s[i + 1] == '0' && s[i + 2] == '2')
+        {
+            six |= s[i + 3] == '6';
+            five |= s[i + 3] == '5';
+        }
+    }
 
-    // Remove this line and write your logic:
-    // (Keeping an empty solve causes no output, which is fine.)
+    if (six || !five)
+    {
+        cout << 0 << endl;
+    }
+    else
+    {
+        cout << 1 << endl;
+    }
 }
 
 // ---------- main ----------
