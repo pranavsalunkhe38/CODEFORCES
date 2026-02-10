@@ -1,7 +1,7 @@
-// LC: 0000 placeholder-slug
-// Title: Placeholder Title
-// Difficulty:
-// Date:
+// LC: 1078B Lawn Mower
+// Title: Lawn Mower
+// Difficulty: Medium
+// Date: 10 Feb 2026
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -133,13 +133,35 @@ void print_vec(const vector<T> &v, char sep = ' ')
 // ---------- solve ----------
 void solve()
 {
-    // Example skeleton:
-    // int n; cin >> n;
-    // vector<int> a(n); read_vec(a);
-    // cout << ... << "\n";
-
-    // Remove this line and write your logic:
-    // (Keeping an empty solve causes no output, which is fine.)
+    int n;
+    cin>>n;
+    string s;
+    cin>>s;
+    int ans = 0;
+    vector<int> v;
+    for(int i=0; i < n; i++){
+        if(s[i] == '0'){
+            if(i == 0 || s[i-1] != '0'){
+                v.push_back(1);
+            }else{
+                v[v.size()-1]++;
+            }
+        }else{
+            ans++;
+        }
+    }
+    
+     if( s[0] != '1'){
+                v[0]++;
+        }
+        if(s[n-1] != '1'){
+            v[v.size()-1]++;
+        }
+    
+    for(auto i: v){
+        ans += i/3;
+    }
+    cout<<ans<<endl;
 }
 
 // ---------- main ----------
@@ -155,3 +177,5 @@ int main()
 
     return 0;
 }
+
+
