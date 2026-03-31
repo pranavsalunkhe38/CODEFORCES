@@ -6,6 +6,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#define debug
 // ---------- types ----------
 using ll = long long;
 using ull = unsigned long long;
@@ -133,13 +134,9 @@ void print_vec(const vector<T> &v, char sep = ' ')
 // ---------- solve ----------
 void solve()
 {
-    // Example skeleton:
-    // int n; cin >> n;
-    // vector<int> a(n); read_vec(a);
-    // cout << ... << "\n";
-
-    // Remove this line and write your logic:
-    // (Keeping an empty solve causes no output, which is fine.)
+    #ifdef debug 
+    #else
+    #endif
 }
 
 // ---------- main ----------
@@ -149,7 +146,11 @@ int main()
     cin.tie(nullptr);
 
     int T = 1;
+    
+    #ifndef debug
     cin >> T;
+    #endif
+
     while (T--)
         solve();
 

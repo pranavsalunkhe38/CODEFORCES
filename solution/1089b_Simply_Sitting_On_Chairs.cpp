@@ -1,10 +1,12 @@
-// LC: 0000 placeholder-slug
-// Title: Placeholder Title
-// Difficulty:
-// Date:
+// LC: 1089b Simply Sitting On Chairs
+// Title: Simply Sitting On Chairs
+// Difficulty: Hard
+// Date: 31 March 2026
 
 #include <bits/stdc++.h>
 using namespace std;
+
+// #define debug
 
 // ---------- types ----------
 using ll = long long;
@@ -131,15 +133,50 @@ void print_vec(const vector<T> &v, char sep = ' ')
 }
 
 // ---------- solve ----------
+
+int func(vector<int> v, int i){
+    int ans = 0;
+    for(int j=0; j <= i; j++){
+        int val = v[j] - 1;
+        ans += (val <= j || val > i);
+    }
+    return ans;
+
+}
 void solve()
 {
-    // Example skeleton:
-    // int n; cin >> n;
-    // vector<int> a(n); read_vec(a);
-    // cout << ... << "\n";
+    int n;
+   vector<int> v;
 
-    // Remove this line and write your logic:
-    // (Keeping an empty solve causes no output, which is fine.)
+    #ifndef debug
+    cin>>n;
+    v.resize(n);
+    read_vec(v);
+    #endif
+
+    #ifdef debug
+       v = {2,3,4,1};
+       n = v.size();
+    #endif
+
+    vector<int> pre(n, 0);
+
+    for(int i=0 ; i < n; i++){
+        
+
+        pre[i] = (i == 0 ? 0 : pre[i-1]) + ((v[i]- 1) <= i);
+        
+    }
+
+    int totol = pre[n-1];
+    int ans = 1;
+
+    for(int i=0; i < n; i++){
+        ans = max(ans, pre[i] + (totol - pre[i]));
+    }
+    cout<<ans<<endl;
+
+
 }
 
 // ---------- main ----------
@@ -149,7 +186,11 @@ int main()
     cin.tie(nullptr);
 
     int T = 1;
+
+    #ifndef debug
     cin >> T;
+    #endif
+
     while (T--)
         solve();
 
