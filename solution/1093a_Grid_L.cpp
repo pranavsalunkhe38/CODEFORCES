@@ -1,11 +1,12 @@
-// LC: 0000 placeholder-slug
-// Title: Placeholder Title
-// Difficulty:
-// Date:
+// LC: 1093a Grid L
+// Title: Grid L
+// Difficulty: Hard
+// Date: 20 April 2026
 
 #include <bits/stdc++.h>
 using namespace std;
 
+#define debug
 // ---------- types ----------
 using ll = long long;
 using ull = unsigned long long;
@@ -131,23 +132,31 @@ void print_vec(const vector<T> &v, char sep = ' ')
 }
 
 // ---------- solve ----------
+
 void solve()
 {
-    cout<<"here"<<endl;
-    int n; cin>>n;
-    vector<int> v(n); read_vec(v);
-    sort(v.begin(), v.end());
-    int prev = 0;
-    int cnt = 0;
-    for(int i=0; i < n; i++){
-        if(v[i] != prev){
-            cnt++;
+    int p, q;
+    cin >> p >> q;
 
+    int val2 = 2*q + p;
+
+    for(int n = 1; n * (2*n+1) <= val2; n++){
+        int num = val2 - n;
+        int demon = 2*n + 1;
+
+        if(num % demon != 0) continue;
+
+        int m = num / demon;
+
+        if(m <= 0) continue;
+
+        if(abs(m - n) <= p && (abs(m - n) % 2 == p % 2)){
+            cout << m << " " << n << endl;
+            return;
         }
-        prev = v[i];
-
     }
-    cout<<cnt<<endl;
+
+    cout << -1 << endl;
 }
 
 // ---------- main ----------
@@ -158,6 +167,10 @@ int main()
 
     int T = 1;
     
+
+    cin >> T;
+ 
+
     while (T--)
         solve();
 

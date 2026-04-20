@@ -6,7 +6,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define debug
 // ---------- types ----------
 using ll = long long;
 using ull = unsigned long long;
@@ -134,9 +133,6 @@ void print_vec(const vector<T> &v, char sep = ' ')
 // ---------- solve ----------
 void solve()
 {
-    #ifdef debug 
-    #else
-    #endif
 }
 
 // ---------- main ----------
@@ -147,10 +143,8 @@ int main()
 
     int T = 1;
     
-    #ifndef debug
     cin >> T;
-    #endif
-
+    
     while (T--)
         solve();
 
