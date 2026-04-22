@@ -1,7 +1,7 @@
-// LC: 0000 placeholder-slug
-// Title: Placeholder Title
-// Difficulty:
-// Date:
+// LC: 1093a Blocked
+// Title: Blocked
+// Difficulty: Easy
+// Date: 22 April 2026
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -133,6 +133,19 @@ void print_vec(const vector<T> &v, char sep = ' ')
 // ---------- solve ----------
 void solve()
 {
+    int n; cin>>n;
+    vector<int> v(n); read_vec(v);
+    sort(v.begin(), v.end(), greater<int>());
+    
+    for(int i=1; i < n; i++){
+        if(v[i] == v[i-1]){
+            cout<<-1<<endl;
+            return;
+        }
+
+    }
+    print_vec(v);
+    
 }
 
 // ---------- main ----------
@@ -142,8 +155,7 @@ int main()
     cin.tie(nullptr);
 
     int T = 1;
-    
-    cin >> T;
+    cin>>T;
     
     while (T--)
         solve();
